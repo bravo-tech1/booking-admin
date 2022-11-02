@@ -1,46 +1,45 @@
-import "../cityList/cityList.css";
 import { DataGrid } from "@material-ui/data-grid";
-import axios from "axios";
 import { DeleteOutline } from "@material-ui/icons";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { useEffect } from "react";
+import axios from "axios";
 
-export default function PartenresList() {
+export default function ProductList() {
   const [data, setData] = useState([]);
 
   const handleDelete = async (id) => {
     await axios
-      .delete(`https://osoolit.000webhostapp.com/api/partner/delete/${id}`)
+      .get(`https://osoolit.000webhostapp.com/api/country/delete/${id}`)
       .then(() => {
         setData(data.filter((el) => el.id !== id));
       });
   };
   useEffect(() => {
-    fetch("https://osoolit.000webhostapp.com/api/partner/show")
+    fetch("https://osoolit.000webhostapp.com/api/country/show")
       .then((res) => res.json())
-      .then((data) => {
-        setData(data);
-      });
+      .then((data) => setData(data));
   }, []);
-
   const columns = [
     { field: "id", headerName: "ID", width: 90 },
-
     {
-      field: "name_ar",
-      headerName: "Partner Name(AR)",
+      field: "title_en",
+      headerName: "Country Name(English)",
       width: 200,
       renderCell: (params) => {
-        return <div className="userListUser">{params.row.name_ar}</div>;
+        return (
+          <div className="productListItem serviceNameC">
+            {params.row.title_en}
+          </div>
+        );
       },
     },
     {
-      field: "name_en",
-      headerName: "Partner Name(EN)",
+      field: "title_ar",
+      headerName: "Country Name(Arabic)",
       width: 200,
       renderCell: (params) => {
-        return <div className="userListUser">{params.row.name_en}</div>;
+        return <div className="productListItem">{params.row.title_ar}</div>;
       },
     },
     {
@@ -50,7 +49,7 @@ export default function PartenresList() {
       renderCell: (params) => {
         return (
           <>
-            <Link to={"/partner/update/" + params.row.id}>
+            <Link to={"/country/update/" + params.row.id}>
               <button className="productListEdit">Edit</button>
             </Link>
             <DeleteOutline
@@ -64,13 +63,14 @@ export default function PartenresList() {
   ];
 
   return (
-    <div className="userList">
+    <div className="productList">
       <DataGrid
         rows={data}
         disableSelectionOnClick
         columns={columns}
         pageSize={8}
         checkboxSelection
+        key={data.map((item) => item.id)}
       />
     </div>
   );

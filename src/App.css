@@ -1,9 +1,12 @@
-.container{
+.containerA{
     display: flex;
     margin-top: 10px;
+
 }
 
-
+a{
+    text-decoration: none;
+}
 .link{
     text-decoration: none;
     color: inherit;

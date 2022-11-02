@@ -4,7 +4,7 @@ import "./App.css";
 
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import WebsiteImage from "./pages/WebsiteImage/WebsiteImage";
-import WebsiteVideo from './pages/websiteVedio/WebsiteVedio';
+import WebsiteVideo from "./pages/websiteVedio/WebsiteVedio";
 import ServicesList from "./pages/servicesList/ServiceList";
 import Service from "./pages/Service/Service";
 import NewService from "./pages/newService/NewService";
@@ -29,15 +29,21 @@ import DepartmentList from "./pages/DepartmentLIst/DepartmentList";
 import NewDepartment from "./pages/NewDepartment/NewDepartment";
 import PartnersList from "./pages/partenersList/PartenersList";
 import NewParteners from "./pages/newParteners/newParteners";
-import Partner from './pages/parteners/parteners';
-import BenefitsList from './pages/benefitsList/BenefitsList';
-import Benefit from './pages/Benefit/Benefit';
+import Partner from "./pages/parteners/parteners";
+import BenefitsList from "./pages/benefitsList/BenefitsList";
+import Benefit from "./pages/Benefit/Benefit";
+import CountryPartner from "./pages/countrypartnerList/CountryPartnerList";
+import NewCountry from "./pages/newpartnerCountry/NewPartnerCountry";
+import Country from "./pages/Country/Country";
+import CityPartnerList from "./pages/cityPartnerList/CityPartnerList";
+import NewCityPartner from "./pages/NewCityPartner/NewCityPartnerList";
+import CityP from "./pages/CityP/CityP";
 
 function App() {
   return (
     <Router>
       <Topbar />
-      <div className="container">
+      <div className="containerA">
         <Sidebar />
         <Switch>
           <Route exact path="/">
@@ -48,6 +54,24 @@ function App() {
           </Route>
           <Route path="/websitevideo">
             <WebsiteVideo />
+          </Route>
+          <Route path="/countryp">
+            <CountryPartner />
+          </Route>
+          <Route path="/country/create">
+            <NewCountry />
+          </Route>
+          <Route path="/country/update/:countrypId">
+            <Country />
+          </Route>
+          <Route path="/citiesp">
+            <CityPartnerList />
+          </Route>
+          <Route path="/cityp/create">
+            <NewCityPartner />
+          </Route>
+          <Route path="/cityp/update/:citypId">
+            <CityP />
           </Route>
           <Route path="/partners">
             <PartnersList />

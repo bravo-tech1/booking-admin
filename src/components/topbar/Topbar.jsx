@@ -7,9 +7,8 @@ export default function Topbar() {
     <div className="topbar">
       <div className="topbarWrapper">
         <div className="topLeft">
-          <span className="logo">BravoAdmin</span>
+          <span className="logo">BookingAdmin</span>
         </div>
-        
       </div>
     </div>
   );
