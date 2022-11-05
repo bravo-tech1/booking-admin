@@ -5,7 +5,9 @@ import Loading from "../../components/Loading/Loading.jsx";
 
 export default function NewParteners() {
   const [name_ar, setname_ar] = useState();
+  const [data, setData] = useState([]);
   const [name_en, setname_en] = useState();
+  const [city_id, setCityId] = useState();
   const [email, setemail] = useState();
   const [website, setwebsite] = useState();
   const [location_ar, setlocation_ar] = useState();
@@ -14,14 +16,22 @@ export default function NewParteners() {
   const [describtion_en, setdescribtion_en] = useState();
   const [profile, setprofile] = useState();
   const [logo, setlogo] = useState();
-  const [country_name, setcountry_name] = useState();
-  const [city_name, setcity_name] = useState();
+
   const [loading, SetLoading] = useState(false);
 
+  const CityId = data.map((item) => (
+    <option value={item.id}>{item.title_en}</option>
+  ));
+  useEffect(() => {
+    fetch("https://booking.emkanfinances.net/api/city-partner/show")
+      .then((res) => res.json())
+      .then((data) => setData(data));
+  }, []);
   const handleSubmit = (event) => {
     event.preventDefault();
     SetLoading(true);
     const formData = new FormData();
+    formData.append("city_partner_id", city_id);
     formData.append("name_ar", name_ar);
     formData.append("name_en", name_en);
     formData.append("email", email);
@@ -32,8 +42,6 @@ export default function NewParteners() {
     formData.append("describtion_en", describtion_en);
     formData.append("profile", profile);
     formData.append("logo", logo);
-    formData.append("country_name", country_name);
-    formData.append("city_name", city_name);
 
     axios
       .post("https://booking.emkanfinances.net/api/partner/create", formData, {
@@ -52,6 +60,22 @@ export default function NewParteners() {
     <div className="newProduct">
       <h1 className="addProductTitle">New Partner</h1>
       <form className="addProductForm" onSubmit={handleSubmit}>
+        <div className="addProductItem">
+          <label>Choose City</label>
+          <select
+            className="newUserSelect"
+            name="country_id"
+            id="active"
+            onChange={(e) => setCityId(e.target.value)}
+            value={city_id}
+            required
+          >
+            <option selected disabled>
+              Choose one
+            </option>
+            {CityId}
+          </select>
+        </div>
         <div className="addProductItem">
           <label>Partner Name (Arabic)</label>
           <input
@@ -143,26 +167,7 @@ export default function NewParteners() {
             onChange={(e) => setprofile(e.target.value)}
           />
         </div>
-        <div className="addProductItem">
-          <label>Country</label>
-          <input
-            type="text"
-            placeholder="Country"
-            name="country_name"
-            value={country_name}
-            onChange={(e) => setcountry_name(e.target.value)}
-          />
-        </div>
-        <div className="addProductItem">
-          <label>City</label>
-          <input
-            type="text"
-            placeholder="City"
-            name="city_name"
-            value={city_name}
-            onChange={(e) => setcity_name(e.target.value)}
-          />
-        </div>
+
         <div className="addProductItem">
           <label>Logo</label>
           <input
