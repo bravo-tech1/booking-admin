@@ -8,7 +8,7 @@ export default function NewCountry() {
   let update;
   const id = Number(window.location.pathname.replace("/country/update/", ""));
   useEffect(() => {
-    fetch(`http://booking.emkanfinances.net/api/country/show`)
+    fetch(`https://booking.emkanfinances.net/api/country/show`)
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
@@ -25,7 +25,7 @@ export default function NewCountry() {
 
     axios
       .post(
-        `http://booking.emkanfinances.net/api/country/update/${id}`,
+        `https://booking.emkanfinances.net/api/country/update/${id}`,
         formData,
         {
           "Content-Type": "multipart/form-data",

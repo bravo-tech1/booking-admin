@@ -63,7 +63,7 @@ export default function NewDeatils() {
   const id = Number(window.location.pathname.replace("/detail/update/", ""));
 
   useEffect(() => {
-    fetch("http://booking.emkanfinances.net/api/package/show")
+    fetch("https://booking.emkanfinances.net/api/package/show")
       .then((res) => res.json())
       .then((data) => setData(data));
   }, []);
@@ -82,7 +82,7 @@ export default function NewDeatils() {
     formData.append("text2_ar", text2_ar);
     formData.append("images[]", images);
     axios({
-      url: `http://booking.emkanfinances.net/api/detail/update/${id}`,
+      url: `https://booking.emkanfinances.net/api/detail/update/${id}`,
       method: "POST",
       data: formData,
     })

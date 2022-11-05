@@ -10,13 +10,13 @@ export default function ProductList() {
 
   const handleDelete = async (id) => {
     await axios
-      .get(`http://booking.emkanfinances.net/api/country/delete/${id}`)
+      .get(`https://booking.emkanfinances.net/api/country/delete/${id}`)
       .then(() => {
         setData(data.filter((el) => el.id !== id));
       });
   };
   useEffect(() => {
-    fetch("http://booking.emkanfinances.net/api/country/show")
+    fetch("https://booking.emkanfinances.net/api/country/show")
       .then((res) => res.json())
       .then((data) => setData(data));
   }, []);

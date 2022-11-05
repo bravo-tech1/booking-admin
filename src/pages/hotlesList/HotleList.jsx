@@ -17,7 +17,7 @@ export default function UserList() {
       });
   };
   useEffect(() => {
-    fetch("http://booking.emkanfinances.net/api/hotel/show")
+    fetch("https://booking.emkanfinances.net/api/hotel/show")
       .then((res) => res.json())
       .then((data) => setData(data));
   }, []);

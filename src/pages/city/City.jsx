@@ -11,7 +11,7 @@ export default function State() {
   const [city_image, setcity_image] = useState();
 
   useEffect(() => {
-    fetch("http://booking.emkanfinances.net/api/state/show")
+    fetch("https://booking.emkanfinances.net/api/state/show")
       .then((res) => res.json())
       .then((data) => setData(data));
   }, []);
@@ -21,7 +21,7 @@ export default function State() {
   const id = Number(window.location.pathname.replace("/cities/update/", ""));
   let update;
   useEffect(() => {
-    fetch(`http://booking.emkanfinances.net/api/city/show`)
+    fetch(`https://booking.emkanfinances.net/api/city/show`)
       .then((res) => res.json())
       .then((data) => {
         update = data.filter((item) => item.id === id);
@@ -42,7 +42,7 @@ export default function State() {
 
     axios
       .post(
-        `http://booking.emkanfinances.net/api/city/update/${id}`,
+        `https://booking.emkanfinances.net/api/city/update/${id}`,
         formData,
         {
           "Content-Type": "multipart/form-data",

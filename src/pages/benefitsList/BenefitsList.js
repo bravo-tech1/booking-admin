@@ -8,7 +8,7 @@ export default function PartenresList() {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    fetch("http://booking.emkanfinances.net/api/benefits/show")
+    fetch("https://booking.emkanfinances.net/api/benefits/show")
       .then((res) => res.json())
       .then((data) => setData(data));
   }, []);

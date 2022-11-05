@@ -16,7 +16,7 @@ export default function State() {
   const id = Number(window.location.pathname.replace("/benefit/update/", ""));
   let update;
   useEffect(() => {
-    fetch(`http://booking.emkanfinances.net/api/benefits/show`)
+    fetch(`https://booking.emkanfinances.net/api/benefits/show`)
       .then((res) => res.json())
       .then((data) => {
         update = data.filter((item) => item.id === id);
@@ -39,7 +39,7 @@ export default function State() {
 
     axios
       .post(
-        `http://booking.emkanfinances.net/api/benefits/update/${id}`,
+        `https://booking.emkanfinances.net/api/benefits/update/${id}`,
         formData,
         {
           "Content-Type": "multipart/form-data",
