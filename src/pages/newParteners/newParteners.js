@@ -36,7 +36,7 @@ export default function NewParteners() {
     formData.append("city_name", city_name);
 
     axios
-      .post("http://booking.emkanfinances.net/api/partner/create", formData, {
+      .post("https://booking.emkanfinances.net/api/partner/create", formData, {
         "Content-Type": "multipart/form-data",
       })
       .then((response) => {

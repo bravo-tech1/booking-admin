@@ -16,7 +16,7 @@ export default function Service() {
   const [loading, SetLoading] = useState(false);
 
   useEffect(() => {
-    fetch("http://booking.emkanfinances.net/api/Department/show")
+    fetch("https://booking.emkanfinances.net/api/Department/show")
       .then((res) => res.json())
       .then((data) => setDataS(data));
   }, []);
@@ -27,13 +27,13 @@ export default function Service() {
 
   const id = Number(window.location.pathname.replace("/service/update/", ""));
   useEffect(() => {
-    fetch("http://booking.emkanfinances.net/api/service/show")
+    fetch("https://booking.emkanfinances.net/api/service/show")
       .then((res) => res.json())
       .then((data) => setData(data.find((x) => x.id === id)));
   }, []);
   let update;
   useEffect(() => {
-    fetch(`http://booking.emkanfinances.net/api/service/show`)
+    fetch(`https://booking.emkanfinances.net/api/service/show`)
       .then((res) => res.json())
       .then((data) => {
         update = data.filter((item) => item.id === id);
@@ -59,7 +59,7 @@ export default function Service() {
 
     axios
       .post(
-        `http://booking.emkanfinances.net/api/service/update/${id}`,
+        `https://booking.emkanfinances.net/api/service/update/${id}`,
         formData,
         { "Content-Type": "multipart/form-data" }
       )

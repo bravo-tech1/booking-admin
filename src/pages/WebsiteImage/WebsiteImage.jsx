@@ -34,7 +34,7 @@ export default function WebsiteImage() {
   const [loading, SetLoading] = useState(false);
 
   useState(() => {
-    fetch("http://booking.emkanfinances.net/api/website/showbyid/1")
+    fetch("https://booking.emkanfinances.net/api/website/showbyid/1")
       .then((res) => res.json())
       .then((dataRes) => {
         console.log(dataRes);
@@ -60,7 +60,7 @@ export default function WebsiteImage() {
     formData.append("website_image_night", website_image_night);
     formData.append("type", "home");
     axios
-      .post("http://booking.emkanfinances.net/api/website/update/1", formData, {
+      .post("https://booking.emkanfinances.net/api/website/update/1", formData, {
         "Content-Type": "multipart/form-data",
       })
       .then((response) => {

@@ -64,7 +64,7 @@ export default function NewDeatils() {
     setImages([...images, ...e.target.files]);
   };
   useEffect(() => {
-    fetch("http://booking.emkanfinances.net/api/package/show")
+    fetch("https://booking.emkanfinances.net/api/package/show")
       .then((res) => res.json())
       .then((data) => setData(data));
   }, []);
@@ -85,7 +85,7 @@ export default function NewDeatils() {
       formData.append("images[]", image_file);
     });
     axios({
-      url: `http://booking.emkanfinances.net/api/detail/create`,
+      url: `https://booking.emkanfinances.net/api/detail/create`,
       method: "POST",
       data: formData,
     })

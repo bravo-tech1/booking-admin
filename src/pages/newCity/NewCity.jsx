@@ -13,7 +13,7 @@ export default function State() {
   const [loading, SetLoading] = useState(false);
 
   useEffect(() => {
-    fetch("http://booking.emkanfinances.net/api/state/show")
+    fetch("https://booking.emkanfinances.net/api/state/show")
       .then((res) => res.json())
       .then((data) => setData(data));
   }, []);
@@ -31,7 +31,7 @@ export default function State() {
     formData.append("city_image", city_image);
 
     axios
-      .post(`http://booking.emkanfinances.net/api/city/create`, formData, {
+      .post(`https://booking.emkanfinances.net/api/city/create`, formData, {
         "Content-Type": "multipart/form-data",
       })
       .then((response) => {

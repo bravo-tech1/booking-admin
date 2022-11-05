@@ -10,7 +10,7 @@ export default function NewService() {
   const [loading, SetLoading] = useState(false);
 
   useEffect(() => {
-    fetch("http://booking.emkanfinances.net/api/country/show")
+    fetch("https://booking.emkanfinances.net/api/country/show")
       .then((res) => res.json())
       .then((data) => setData(data));
   }, []);
@@ -30,7 +30,7 @@ export default function NewService() {
 
     axios
       .post(
-        "http://booking.emkanfinances.net/api/city-partner/create",
+        "https://booking.emkanfinances.net/api/city-partner/create",
         formData,
         {
           "Content-Type": "multipart/form-data",

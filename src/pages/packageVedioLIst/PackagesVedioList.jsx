@@ -12,18 +12,18 @@ export default function PackagesList() {
 
   const handleDelete = async (id) => {
     await axios
-      .delete(`http://booking.emkanfinances.net/api/video/delete/${id}`)
+      .delete(`https://booking.emkanfinances.net/api/video/delete/${id}`)
       .then(() => {
         setData(data.filter((el) => el.id !== id));
       });
   };
   useEffect(() => {
-    fetch("http://booking.emkanfinances.net/api/video/show")
+    fetch("https://booking.emkanfinances.net/api/video/show")
       .then((res) => res.json())
       .then((data) => setData(data));
   }, []);
   useEffect(() => {
-    fetch("http://booking.emkanfinances.net/api/package/show")
+    fetch("https://booking.emkanfinances.net/api/package/show")
       .then((res) => res.json())
       .then((data) => setServicData(data));
   }, []);

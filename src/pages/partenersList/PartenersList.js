@@ -11,13 +11,13 @@ export default function PartenresList() {
 
   const handleDelete = async (id) => {
     await axios
-      .delete(`http://booking.emkanfinances.net/api/partner/delete/${id}`)
+      .delete(`https://booking.emkanfinances.net/api/partner/delete/${id}`)
       .then(() => {
         setData(data.filter((el) => el.id !== id));
       });
   };
   useEffect(() => {
-    fetch("http://booking.emkanfinances.net/api/partner/show")
+    fetch("https://booking.emkanfinances.net/api/partner/show")
       .then((res) => res.json())
       .then((data) => {
         setData(data);

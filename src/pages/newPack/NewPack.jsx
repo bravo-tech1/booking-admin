@@ -20,7 +20,7 @@ export default function NewState() {
   const [loading, SetLoading] = useState(false);
 
   useEffect(() => {
-    fetch("http://booking.emkanfinances.net/api/hotel/show")
+    fetch("https://booking.emkanfinances.net/api/hotel/show")
       .then((res) => res.json())
       .then((data) => setData(data));
   }, []);
@@ -43,7 +43,7 @@ export default function NewState() {
     formData.append("package_image", pack_image);
 
     axios
-      .post("http://booking.emkanfinances.net/api/package/create", formData, {
+      .post("https://booking.emkanfinances.net/api/package/create", formData, {
         "Content-Type": "multipart/form-data",
       })
       .then((response) => {

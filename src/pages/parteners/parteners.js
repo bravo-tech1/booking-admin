@@ -21,7 +21,7 @@ export default function State() {
   let update;
   const id = Number(window.location.pathname.replace("/partner/update/", ""));
   useEffect(() => {
-    fetch(`http://booking.emkanfinances.net/api/partner/show`)
+    fetch(`https://booking.emkanfinances.net/api/partner/show`)
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
@@ -40,7 +40,7 @@ export default function State() {
   }, []);
 
   useEffect(() => {
-    fetch("http://booking.emkanfinances.net/api/city-partner/show")
+    fetch("https://booking.emkanfinances.net/api/city-partner/show")
       .then((res) => res.json())
       .then((data) => setData(data));
   }, []);
@@ -65,7 +65,7 @@ export default function State() {
 
     axios
       .post(
-        `http://booking.emkanfinances.net/api/partner/update/${id}`,
+        `https://booking.emkanfinances.net/api/partner/update/${id}`,
         formData,
         {
           "Content-Type": "multipart/form-data",

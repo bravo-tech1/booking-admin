@@ -12,7 +12,7 @@ export default function NewState() {
     formData.append("dep_name_ar", departmetnTitlAr);
     axios
       .post(
-        "http://booking.emkanfinances.net/api/Department/create",
+        "https://booking.emkanfinances.net/api/Department/create",
         formData,
         {
           "Content-Type": "multipart/form-data",
