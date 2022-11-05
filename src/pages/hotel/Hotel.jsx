@@ -16,7 +16,7 @@ export default function State() {
   let update;
   const id = Number(window.location.pathname.replace("/hotel/update/", ""));
   useEffect(() => {
-    fetch(`https://osoolit.000webhostapp.com/api/hotel/show`)
+    fetch(`http://booking.emkanfinances.net/api/hotel/show`)
       .then((res) => res.json())
       .then((data) => {
         update = data.filter((item) => item.id === id);
@@ -32,7 +32,7 @@ export default function State() {
   }, []);
 
   useEffect(() => {
-    fetch("https://osoolit.000webhostapp.com/api/city/show")
+    fetch("http://booking.emkanfinances.net/api/city/show")
       .then((res) => res.json())
       .then((data) => setData(data));
   }, []);
@@ -53,9 +53,13 @@ export default function State() {
     formData.append("hotel_image", hotel_image);
 
     axios
-      .post(`https://osoolit.000webhostapp.com/api/hotel/update/${id}`, formData, {
-        "Content-Type": "multipart/form-data",
-      })
+      .post(
+        `http://booking.emkanfinances.net/api/hotel/update/${id}`,
+        formData,
+        {
+          "Content-Type": "multipart/form-data",
+        }
+      )
       .then((response) => {
         if (response.status === 200) {
           window.location.href = "/hotels";

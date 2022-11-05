@@ -1,6 +1,3 @@
-
-
-
 import { useEffect } from "react";
 import "../Service/service.css";
 import axios from "axios";
@@ -19,16 +16,14 @@ export default function State() {
   const id = Number(window.location.pathname.replace("/benefit/update/", ""));
   let update;
   useEffect(() => {
-    fetch(`https://osoolit.000webhostapp.com/api/benefits/show`)
+    fetch(`http://booking.emkanfinances.net/api/benefits/show`)
       .then((res) => res.json())
       .then((data) => {
-  
         update = data.filter((item) => item.id === id);
         settitle_ar(update[0].title_ar);
         settitle_en(update[0].title_en);
         setdescription_ar(update[0].description_ar);
         setdescription_en(update[0].description_en);
-       
       });
   }, []);
   const handleSubmit = (event) => {
@@ -43,9 +38,13 @@ export default function State() {
     formData.append("image_dark", image_dark);
 
     axios
-      .post(`https://osoolit.000webhostapp.com/api/benefits/update/${id}`, formData, {
-        "Content-Type": "multipart/form-data",
-      })
+      .post(
+        `http://booking.emkanfinances.net/api/benefits/update/${id}`,
+        formData,
+        {
+          "Content-Type": "multipart/form-data",
+        }
+      )
       .then((response) => {
         if (response.status === 200) {
           window.location.href = "/benefits";
@@ -63,7 +62,6 @@ export default function State() {
       </div>
       <div className="newProduct">
         <form className="addProductForm" onSubmit={handleSubmit}>
-         
           <div className="addProductItem">
             <label>Title (Arabic)</label>
             <input
@@ -83,7 +81,7 @@ export default function State() {
               value={title_en}
               onChange={(e) => settitle_en(e.target.value)}
             />
-          </div> 
+          </div>
           <div className="addProductItem">
             <label>Description (Arabic)</label>
             <input

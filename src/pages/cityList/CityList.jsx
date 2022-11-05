@@ -11,13 +11,13 @@ export default function UserList() {
 
   const handleDelete = async (id) => {
     await axios
-      .delete(`https://osoolit.000webhostapp.com/api/city/delete/${id}`)
+      .delete(`http://booking.emkanfinances.net/api/city/delete/${id}`)
       .then(() => {
         setData(data.filter((el) => el.id !== id));
       });
   };
   useEffect(() => {
-    fetch("https://osoolit.000webhostapp.com/api/city/show")
+    fetch("http://booking.emkanfinances.net/api/city/show")
       .then((res) => res.json())
       .then((data) => setData(data));
   }, []);

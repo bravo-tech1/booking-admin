@@ -11,9 +11,13 @@ export default function NewState() {
     formData.append("dep_name_en", departmetnTitleEn);
     formData.append("dep_name_ar", departmetnTitlAr);
     axios
-      .post("https://osoolit.000webhostapp.com/api/Department/create", formData, {
-        "Content-Type": "multipart/form-data",
-      })
+      .post(
+        "http://booking.emkanfinances.net/api/Department/create",
+        formData,
+        {
+          "Content-Type": "multipart/form-data",
+        }
+      )
       .then((response) => {
         if (response.status === 201) {
           window.location.href = "/departments";

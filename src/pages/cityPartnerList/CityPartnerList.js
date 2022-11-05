@@ -10,13 +10,13 @@ export default function CityList() {
 
   const handleDelete = async (id) => {
     await axios
-      .get(`https://osoolit.000webhostapp.com/api/city-partner/delete/${id}`)
+      .get(`http://booking.emkanfinances.net/api/city-partner/delete/${id}`)
       .then(() => {
         setData(data.filter((el) => el.id !== id));
       });
   };
   useEffect(() => {
-    fetch("https://osoolit.000webhostapp.com/api/city-partner/show")
+    fetch("http://booking.emkanfinances.net/api/city-partner/show")
       .then((res) => res.json())
       .then((data) => setData(data));
   }, []);

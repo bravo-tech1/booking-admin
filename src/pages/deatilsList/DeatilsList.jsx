@@ -13,18 +13,18 @@ export default function DeatilsList() {
 
   const handleDelete = async (id) => {
     await axios
-      .delete(`https://osoolit.000webhostapp.com/api/detail/delete/${id}`)
+      .delete(`http://booking.emkanfinances.net/api/detail/delete/${id}`)
       .then(() => {
         setData(data.filter((el) => el.id !== id));
       });
   };
   useEffect(() => {
-    fetch("https://osoolit.000webhostapp.com/api/detail/show")
+    fetch("http://booking.emkanfinances.net/api/detail/show")
       .then((res) => res.json())
       .then((data) => setData(data));
   }, []);
   useEffect(() => {
-    fetch("https://osoolit.000webhostapp.com/api/package/show")
+    fetch("http://booking.emkanfinances.net/api/package/show")
       .then((res) => res.json())
       .then((data) => setServicData(data));
   }, []);

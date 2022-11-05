@@ -18,7 +18,6 @@ export default function NewParteners() {
   const [city_name, setcity_name] = useState();
   const [loading, SetLoading] = useState(false);
 
-
   const handleSubmit = (event) => {
     event.preventDefault();
     SetLoading(true);
@@ -35,9 +34,9 @@ export default function NewParteners() {
     formData.append("logo", logo);
     formData.append("country_name", country_name);
     formData.append("city_name", city_name);
-    
+
     axios
-      .post("https://osoolit.000webhostapp.com/api/partner/create", formData, {
+      .post("http://booking.emkanfinances.net/api/partner/create", formData, {
         "Content-Type": "multipart/form-data",
       })
       .then((response) => {
@@ -173,7 +172,6 @@ export default function NewParteners() {
             onChange={(e) => setlogo(e.target.files.item(0))}
           />
         </div>
-        
 
         <button className="addProductButton" type="submit">
           Create

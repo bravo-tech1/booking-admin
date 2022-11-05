@@ -11,7 +11,7 @@ export default function NewCountry() {
     formData.append("title_en", title_en);
     formData.append("title_ar", title_ar);
     axios
-      .post("https://osoolit.000webhostapp.com/api/country/create", formData, {
+      .post("http://booking.emkanfinances.net/api/country/create", formData, {
         "Content-Type": "multipart/form-data",
       })
       .then((response) => {

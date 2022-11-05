@@ -9,7 +9,7 @@ export default function City() {
   const [title_ar, settitle_ar] = useState();
 
   useEffect(() => {
-    fetch("https://osoolit.000webhostapp.com/api/country/show")
+    fetch("http://booking.emkanfinances.net/api/country/show")
       .then((res) => res.json())
       .then((data) => setData(data));
   }, []);
@@ -19,7 +19,7 @@ export default function City() {
   const id = Number(window.location.pathname.replace("/cityp/update/", ""));
   let update;
   useEffect(() => {
-    fetch(`https://osoolit.000webhostapp.com/api/city-partner/show`)
+    fetch(`http://booking.emkanfinances.net/api/city-partner/show`)
       .then((res) => res.json())
       .then((data) => {
         update = data.filter((item) => item.id === id);
@@ -38,7 +38,7 @@ export default function City() {
 
     axios
       .post(
-        `https://osoolit.000webhostapp.com/api/city-partner/update/${id}`,
+        `http://booking.emkanfinances.net/api/city-partner/update/${id}`,
         formData,
         {
           "Content-Type": "multipart/form-data",

@@ -13,7 +13,7 @@ export default function State() {
   const [loading, SetLoading] = useState(false);
 
   useEffect(() => {
-    fetch("https://osoolit.000webhostapp.com/api/state/show")
+    fetch("http://booking.emkanfinances.net/api/state/show")
       .then((res) => res.json())
       .then((data) => setData(data));
   }, []);
@@ -31,7 +31,7 @@ export default function State() {
     formData.append("city_image", city_image);
 
     axios
-      .post(`https://osoolit.000webhostapp.com/api/city/create`, formData, {
+      .post(`http://booking.emkanfinances.net/api/city/create`, formData, {
         "Content-Type": "multipart/form-data",
       })
       .then((response) => {

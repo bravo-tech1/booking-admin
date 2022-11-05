@@ -9,7 +9,7 @@ export default function NewPackImage() {
   const [loading, SetLoading] = useState(false);
 
   useEffect(() => {
-    fetch("https://osoolit.000webhostapp.com/api/package/show")
+    fetch("http://booking.emkanfinances.net/api/package/show")
       .then((res) => res.json())
       .then((data) => setData(data));
   }, []);
@@ -52,7 +52,7 @@ export default function NewPackImage() {
     }
     formData.append("package_id", packageId);
     axios({
-      url: `https://osoolit.000webhostapp.com/api/video/create/${packageId}`,
+      url: `http://booking.emkanfinances.net/api/video/create/${packageId}`,
       method: "POST",
       data: formData,
     })

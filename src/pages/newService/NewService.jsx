@@ -15,7 +15,7 @@ export default function NewService() {
   const [loading, SetLoading] = useState(false);
 
   useEffect(() => {
-    fetch("https://osoolit.000webhostapp.com/api/Department/show")
+    fetch("http://booking.emkanfinances.net/api/Department/show")
       .then((res) => res.json())
       .then((data) => setData(data));
   }, []);
@@ -37,7 +37,7 @@ export default function NewService() {
     formData.append("department_id", departmentId);
 
     axios
-      .post("https://osoolit.000webhostapp.com/api/service/create", formData, {
+      .post("http://booking.emkanfinances.net/api/service/create", formData, {
         "Content-Type": "multipart/form-data",
       })
       .then((response) => {

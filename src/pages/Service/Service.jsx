@@ -16,7 +16,7 @@ export default function Service() {
   const [loading, SetLoading] = useState(false);
 
   useEffect(() => {
-    fetch("https://osoolit.000webhostapp.com/api/Department/show")
+    fetch("http://booking.emkanfinances.net/api/Department/show")
       .then((res) => res.json())
       .then((data) => setDataS(data));
   }, []);
@@ -27,13 +27,13 @@ export default function Service() {
 
   const id = Number(window.location.pathname.replace("/service/update/", ""));
   useEffect(() => {
-    fetch("https://osoolit.000webhostapp.com/api/service/show")
+    fetch("http://booking.emkanfinances.net/api/service/show")
       .then((res) => res.json())
       .then((data) => setData(data.find((x) => x.id === id)));
   }, []);
   let update;
   useEffect(() => {
-    fetch(`https://osoolit.000webhostapp.com/api/service/show`)
+    fetch(`http://booking.emkanfinances.net/api/service/show`)
       .then((res) => res.json())
       .then((data) => {
         update = data.filter((item) => item.id === id);
@@ -59,7 +59,7 @@ export default function Service() {
 
     axios
       .post(
-        `https://osoolit.000webhostapp.com/api/service/update/${id}`,
+        `http://booking.emkanfinances.net/api/service/update/${id}`,
         formData,
         { "Content-Type": "multipart/form-data" }
       )

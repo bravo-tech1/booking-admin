@@ -64,7 +64,7 @@ export default function NewDeatils() {
     setImages([...images, ...e.target.files]);
   };
   useEffect(() => {
-    fetch("https://osoolit.000webhostapp.com/api/package/show")
+    fetch("http://booking.emkanfinances.net/api/package/show")
       .then((res) => res.json())
       .then((data) => setData(data));
   }, []);
@@ -85,7 +85,7 @@ export default function NewDeatils() {
       formData.append("images[]", image_file);
     });
     axios({
-      url: `https://osoolit.000webhostapp.com/api/detail/create`,
+      url: `http://booking.emkanfinances.net/api/detail/create`,
       method: "POST",
       data: formData,
     })

@@ -2,34 +2,31 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import Loading from "../../components/Loading/Loading.jsx";
 
-
 export default function WebsiteImage() {
- 
   const [website_image, setwebsite_image] = useState();
 
   const [loading, SetLoading] = useState(false);
 
   useEffect(() => {
-    fetch("https://osoolit.000webhostapp.com/api/website/showbyid/2")
+    fetch("http://booking.emkanfinances.net/api/website/showbyid/2")
       .then((res) => res.json())
-      .then((dataRes) => console.log(dataRes))
-  },[])
-  
+      .then((dataRes) => console.log(dataRes));
+  }, []);
+
   const handleSubmit = (event) => {
     event.preventDefault();
     SetLoading(true);
     const formData = new FormData();
-    formData.append("title_en", 'none');
-    formData.append("title_en_night", 'none');
-    formData.append("title_ar", 'none');
-    formData.append("title_ar_night", 'none');
-    formData.append("website_image_night", 'none');
-    formData.append("type", 'video');
+    formData.append("title_en", "none");
+    formData.append("title_en_night", "none");
+    formData.append("title_ar", "none");
+    formData.append("title_ar_night", "none");
+    formData.append("website_image_night", "none");
+    formData.append("type", "video");
     formData.append("website_image", website_image);
-    
 
     axios
-      .post("https://osoolit.000webhostapp.com/api/website/update/2", formData, {
+      .post("http://booking.emkanfinances.net/api/website/update/2", formData, {
         "Content-Type": "multipart/form-data",
       })
       .then((response) => {

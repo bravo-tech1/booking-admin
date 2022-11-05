@@ -33,13 +33,11 @@ export default function WebsiteImage() {
   const [website_image_night, setwebsite_image_night] = useState();
   const [loading, SetLoading] = useState(false);
 
-
-
   useState(() => {
-    fetch("https://osoolit.000webhostapp.com/api/website/showbyid/1")
+    fetch("http://booking.emkanfinances.net/api/website/showbyid/1")
       .then((res) => res.json())
       .then((dataRes) => {
-        console.log(dataRes)
+        console.log(dataRes);
         dataRes.map((item) => {
           settitle_en(item.title_en);
           settitle_en_night(item.title_en_night);
@@ -60,9 +58,9 @@ export default function WebsiteImage() {
     formData.append("title_ar_night", title_ar_night);
     formData.append("website_image", website_image);
     formData.append("website_image_night", website_image_night);
-    formData.append("type", 'home');
+    formData.append("type", "home");
     axios
-      .post("https://osoolit.000webhostapp.com/api/website/update/1", formData, {
+      .post("http://booking.emkanfinances.net/api/website/update/1", formData, {
         "Content-Type": "multipart/form-data",
       })
       .then((response) => {

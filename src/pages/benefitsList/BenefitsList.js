@@ -4,42 +4,34 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import { useEffect } from "react";
 
-
-
 export default function PartenresList() {
-
-
   const [data, setData] = useState([]);
 
-
-  useEffect(()=>{
-    fetch("https://osoolit.000webhostapp.com/api/benefits/show")
-      .then(res => res.json())
-      .then(data => setData(data))
-    },[])
-
+  useEffect(() => {
+    fetch("http://booking.emkanfinances.net/api/benefits/show")
+      .then((res) => res.json())
+      .then((data) => setData(data));
+  }, []);
 
   const columns = [
     { field: "id", headerName: "ID", width: 90 },
-  
-    { field: "title_ar", headerName: "Title (AR)", width: 200,
+
+    {
+      field: "title_ar",
+      headerName: "Title (AR)",
+      width: 200,
       renderCell: (params) => {
-        return(
-          <div className="userListUser">
-            {params.row.title_ar}
-          </div>
-        )
-      }
+        return <div className="userListUser">{params.row.title_ar}</div>;
+      },
     },
-    { field: "title_en", headerName: "Title (EN)", width: 200,
-    renderCell: (params) => {
-      return(
-        <div className="userListUser">
-          {params.row.title_en}
-        </div>
-      )
-    }
-  },
+    {
+      field: "title_en",
+      headerName: "Title (EN)",
+      width: 200,
+      renderCell: (params) => {
+        return <div className="userListUser">{params.row.title_en}</div>;
+      },
+    },
     {
       field: "action",
       headerName: "Action",
@@ -54,10 +46,7 @@ export default function PartenresList() {
         );
       },
     },
-    
   ];
-
-
 
   return (
     <div className="userList">

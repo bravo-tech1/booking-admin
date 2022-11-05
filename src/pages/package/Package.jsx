@@ -21,7 +21,7 @@ export default function State() {
   const [loading, SetLoading] = useState(false);
 
   useEffect(() => {
-    fetch("https://osoolit.000webhostapp.com/api/hotel/show")
+    fetch("http://booking.emkanfinances.net/api/hotel/show")
       .then((res) => res.json())
       .then((data) => setData(data));
   }, []);
@@ -32,7 +32,7 @@ export default function State() {
 
   let update;
   useEffect(() => {
-    fetch(`https://osoolit.000webhostapp.com/api/package/show`)
+    fetch(`http://booking.emkanfinances.net/api/package/show`)
       .then((res) => res.json())
       .then((data) => {
         update = data.filter((item) => item.id === id);
@@ -66,7 +66,7 @@ export default function State() {
 
     axios
       .post(
-        `https://osoolit.000webhostapp.com/api/package/update/${id}`,
+        `http://booking.emkanfinances.net/api/package/update/${id}`,
         formData,
         { "Content-Type": "multipart/form-data" }
       )
