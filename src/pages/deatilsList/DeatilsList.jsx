@@ -13,7 +13,7 @@ export default function DeatilsList() {
 
   const handleDelete = async (id) => {
     await axios
-      .delete(`https://booking.emkanfinances.net/api/detail/delete/${id}`)
+      .get(`https://booking.emkanfinances.net/api/detail/delete/${id}`)
       .then(() => {
         setData(data.filter((el) => el.id !== id));
       });

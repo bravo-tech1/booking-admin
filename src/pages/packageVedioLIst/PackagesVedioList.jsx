@@ -12,7 +12,7 @@ export default function PackagesList() {
 
   const handleDelete = async (id) => {
     await axios
-      .delete(`https://booking.emkanfinances.net/api/video/delete/${id}`)
+      .get(`https://booking.emkanfinances.net/api/video/delete/${id}`)
       .then(() => {
         setData(data.filter((el) => el.id !== id));
       });

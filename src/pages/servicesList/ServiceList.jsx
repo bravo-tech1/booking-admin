@@ -11,7 +11,7 @@ export default function ProductList() {
 
   const handleDelete = async (id) => {
     await axios
-      .delete(`https://booking.emkanfinances.net/api/service/delete/${id}`)
+      .get(`https://booking.emkanfinances.net/api/service/delete/${id}`)
       .then(() => {
         setData(data.filter((el) => el.id !== id));
       });

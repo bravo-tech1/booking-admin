@@ -11,7 +11,7 @@ export default function UserList() {
 
   const handleDelete = async (id) => {
     await axios
-      .delete(`https://booking.emkanfinances.net/api/hotel/delete/${id}`)
+      .get(`https://booking.emkanfinances.net/api/hotel/delete/${id}`)
       .then(() => {
         setData(data.filter((el) => el.id !== id));
       });

@@ -11,7 +11,7 @@ export default function PartenresList() {
 
   const handleDelete = async (id) => {
     await axios
-      .delete(`https://booking.emkanfinances.net/api/partner/delete/${id}`)
+      .get(`https://booking.emkanfinances.net/api/partner/delete/${id}`)
       .then(() => {
         setData(data.filter((el) => el.id !== id));
       });
